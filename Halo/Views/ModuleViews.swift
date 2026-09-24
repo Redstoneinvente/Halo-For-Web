@@ -2310,13 +2310,18 @@ struct DesktopGlass: NSViewRepresentable {
         func apply(_ options: GlassOptions) {
             let options = options.normalized()
 
+            #if HALO_WEB
+            applyLegacyGlass(options)
+            #else
             if #available(macOS 26.0, *) {
                 applySystemGlass(options)
             } else {
                 applyLegacyGlass(options)
             }
+            #endif
         }
 
+        #if !HALO_WEB
         @available(macOS 26.0, *)
         private func applySystemGlass(_ options: GlassOptions) {
             let glassView: NSGlassEffectView
@@ -2372,6 +2377,7 @@ struct DesktopGlass: NSViewRepresentable {
             let clarityPresence = 0.35 + (1 - options.clarity) * 0.65
             glassView.alphaValue = CGFloat(max(0.08, refractionPresence) * clarityPresence)
         }
+        #endif
 
         private func applyLegacyGlass(_ options: GlassOptions) {
             systemGlass?.removeFromSuperview()

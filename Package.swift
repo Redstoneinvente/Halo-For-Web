@@ -54,16 +54,17 @@ if haloWebBuild {
                     "Halo/Services/CaptureService.swift",
                     "Halo/Services/DisabledAudioSpectrumService.swift",
                     "Halo/Services/HUDEngine.swift",
-                    "Halo/Services/HaloFeedbackService.swift",
                     "Halo/Services/IntegrationShortcuts.swift",
                     "Halo/Services/Integrations.swift",
                     "Halo/Services/SafariMediaBridge.swift",
                     "Halo/Services/ShelfPreview.swift",
+                    "Halo/Views/ActivationSequence.swift",
                     "Halo/Views/ClosedNotchView.swift",
                     "Halo/Views/CompanionSprite.swift",
                     "Halo/Views/DecorationsView.swift",
                     "Halo/Views/ModuleViews.swift",
                     "Halo/Views/PixelPetWidget.swift",
+                    "Halo/Views/SurfaceAppearanceView.swift",
                     "Halo/Views/SurfaceView.swift",
                     "Halo/Views/VisualWorkspaceAdaptiveWidgets.swift",
                     "Halo/Views/WidgetViews.swift",
@@ -73,7 +74,8 @@ if haloWebBuild {
                     "WebCompat/main.swift"
                 ],
                 swiftSettings: [
-                    .define("HALO_WEB")
+                    .define("HALO_WEB"),
+                    .define("HALO_DIRECT")
                 ]
             )
         ]
