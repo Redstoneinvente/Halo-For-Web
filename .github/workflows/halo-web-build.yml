@@ -1,0 +1,21 @@
+name: Halo Web Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Package.swift"
+      - "Halo/**"
+      - "WebCompat/**"
+      - ".github/workflows/halo-web-build.yml"
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Halo web host
+        env:
+          HALO_WEB: "1"
+        run: swift build -c debug --product HaloWeb
