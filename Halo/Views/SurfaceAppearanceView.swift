@@ -181,6 +181,8 @@ enum SurfaceAppearanceScope {
     case all, background, geometry, closedGeometry, openedPosition, surfaceGeometry, motion
 }
 
+#if !HALO_WEB
+
 private enum GlassAppearancePreset: String, CaseIterable, Identifiable {
     case crystal = "Crystal"
     case balanced = "Balanced"
@@ -593,3 +595,5 @@ private enum GlassAppearancePreset: String, CaseIterable, Identifiable {
         })
     }
 }
+
+#endif // !HALO_WEB
